@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TANGO-CC</title>
+    <!-- Material Design CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/ess7xmw.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="pwa-toast" role="alert" aria-labelledby="toast-message">
+        <div class="message">
+          <span id="toast-message"></span>
+        </div>
+
+        <button type="button" class="custom-button" id="pwa-refresh">
+          <span><strong>RELOAD</strong></span>
+        </button>
+
+        <button type="button" class="custom-button" id="pwa-close">
+          <span><strong>CLOSE</strong></span>
+        </button>
+      </div>
+
+      <div id="flex-wrapper">
+        <div class="flex-item">
+          <h1 class="heading">Welcome to TANGO-CC</h1>
+
+          <div>
+            <img id="logo-tango" src="./favicon.svg" />
+          </div>
+
+          <h3>
+            Thanks for your interest in our gaze understanding task. <br />
+            Please use the following reference:
+          </h3>
+
+          <p>
+            Prein, J.C., Bednarski, F. M., Dzabatou, A., Frank, M. C.,
+            Henderson, A. M. E., Kalbitz, J., Kanngiesser, P., Keşşafoğlu, D.,
+            Köymen, B., Manrique-Hernandez, M. V., Magazi, S., Mújica-Manrique,
+            L., Ohlendorf, J., Olaoba, D., Pieters, W. R., Pope-Caldwell, S.,
+            Sen, U., Slocombe, K., Sparks, R. Z., Stengelin, R., Sunderarajan,
+            J., Sutherland, K., Tusiime, F., Vieira, W., Zhang, Z., Zong, Y.,
+            Haun, D. B. M.*, Bohn, M.*. (2024). <br />
+
+            Measuring variation in gaze following across communities, ages, and
+            individuals – a showcase of the TANGO–CC.
+            <br />
+            <em> PsyArxiv. </em>
+            <br />
+            <!-- <a href="https://doi.org/">https://doi.org/</a> -->
+          </p>
+
+          <h3>
+            First time here? Have a look at our
+            <a
+              href="https://ccp-odc.eva.mpg.de/tango-cc/manual.html"
+              target="_blank"
+            >
+              Manual
+            </a>
+          </h3>
+
+          <hr style="width: 100%; text-align: left; margin-left: 0" />
+
+          <p class="text">
+            <strong> Please select a language: </strong>
+          </p>
+          <select id="language-options">
+            <option value="bem">Bemba (Zambia)</option>
+            <option value="chi">Chinese (China)</option>
+            <option value="eng-in">English (India)</option>
+            <option value="eng-nz">English (New Zealand)</option>
+            <option value="eng-ni">English (Nigeria)</option>
+            <option value="eng-uk" selected>English (UK)</option>
+            <option value="eng-us">English (USA)</option>
+            <option value="ger">German (Germany)</option>
+            <option value="hai">Hai||om (Namibia)</option>
+            <option value="khw">Khwedam (Namibia)</option>
+            <option value="lin">Lingala (Rep. Congo)</option>
+            <option value="mar">Marathi (India)</option>
+            <option value="sho">Shona (Zimbabwe)</option>
+            <option value="spa-ar">Spanish (Argentina)</option>
+            <option value="spa-me">Spanish (Mexico)</option>
+            <option value="swa">Kiswahili (Uganda)</option>
+            <option value="tur">Turkish (Türkiye)</option>
+            <option value="bay">Yaka (Rep. Congo)</option>
+            <option value="custom">Custom (see instruction page)</option>
+          </select>
+
+          <p class="text">
+            <strong> Do you want to further customize the TANGO-CC? </strong>
+          </p>
+
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="customize-options"
+              value="false"
+              checked
+            />
+            No, use the default settings
+          </label>
+          <br />
+          <label class="radio-label">
+            <input type="radio" name="customize-options" value="true" />
+            Yes, let me choose the trial numbers, background, and agents
+          </label>
+
+          <br />
+          <br />
+
+          <div class="button-center-wrapper">
+            <button type="button" class="custom-button" id="continue-button">
+              <span><strong>CONTINUE</strong></span>
+            </button>
+          </div>
+
+          <br />
+
+          <hr style="width: 100%; text-align: left; margin-left: 0" />
+
+          <div class="columns">
+            <div class="col">
+              <img id="logo-ccp" src="./logos/mpi-ccp-en.svg" />
+            </div>
+            <div class="col">
+              <img id="logo-leuphana" src="./logos/leuphana-en.svg" />
+            </div>
+          </div>
+
+          <p class="imprint">
+            <a href="https://www.eva.mpg.de/imprint/" target="_blank"
+              >Imprint</a
+            >
+            /
+            <a
+              href="https://www.eva.mpg.de/privacy-policy"
+              target="_blank"
+              id="dataProtection"
+            >
+              Data Protection</a
+            >
+          </p>
+
+          <!-- end flex-item -->
+        </div>
+
+        <!-- end flex-wrapper -->
+      </div>
+    </div>
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>
