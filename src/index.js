@@ -119,8 +119,8 @@ const handleContinueClick = (event) => {
 
     // otherwise, jump directly to study start
   } else {
-    // window.location.href = `./id.html?lang=${lang}&touch=1&fam=2&test=16&bg=${bg}&agents=${agents}`;
-    window.location.href = `./id.html`;
+    window.location.href = `./id.html?lang=${lang}&touch=1&fam=2&test=16&bg=${bg}&agents=${agents}`;
+    //window.location.href = `./id.html`;
   }
 };
 

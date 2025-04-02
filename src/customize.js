@@ -165,7 +165,7 @@ allagentsCheckbox.addEventListener('change', function (e) {
 });
 
 // continue on button click
-const button = document.getElementById('button-center-item');
+const button = document.getElementById('continue-button');
 const handleContinueClick = () => {
   const touch = parseFloat(document.getElementById('touch').value);
   const fam = parseFloat(document.getElementById('fam').value);
