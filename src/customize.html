@@ -30,52 +30,49 @@
           <div class="col">
             <p>Training 1:</p>
             <p class="footnote">(path of balloon visible)</p>
-            <label class="mdc-text-field mdc-text-field--filled trial-field">
+            <div class="input-field">
               <input
-                id="touch"
-                class="mdc-text-field__input"
-                type="number"
+                type="text"
                 min="1"
                 max="100"
                 step="1"
                 value="1"
+                id="touch"
+                name="touch"
               />
-              <span class="mdc-line-ripple"></span>
-            </label>
+            </div>
           </div>
 
           <div class="col">
             <p>Training 2:</p>
             <p class="footnote">(path of balloon partially covered)</p>
-            <label class="mdc-text-field mdc-text-field--filled trial-field">
+            <div class="input-field">
               <input
-                id="fam"
-                class="mdc-text-field__input"
-                type="number"
+                type="text"
                 min="1"
                 max="100"
                 step="1"
-                value="2"
+                value="1"
+                id="fam"
+                name="fam"
               />
-              <span class="mdc-line-ripple"></span>
-            </label>
+            </div>
           </div>
 
           <div class="col">
             <p>Test trials:</p>
             <p class="footnote">(path of balloon completely covered)</p>
-            <label class="mdc-text-field mdc-text-field--filled trial-field">
+            <div class="input-field">
               <input
-                id="test"
-                class="mdc-text-field__input"
-                type="number"
+                type="text"
                 min="1"
                 max="100"
                 step="1"
-                value="16"
+                value="1"
+                id="test"
+                name="test"
               />
-              <span class="mdc-line-ripple"></span>
-            </label>
+            </div>
           </div>
         </div>
 
@@ -120,29 +117,12 @@
           <strong> Please choose which agents should be displayed: </strong>
         </p>
 
-        <div class="mdc-form-field">
-          <div class="mdc-checkbox">
-            <input
-              type="checkbox"
-              class="mdc-checkbox__native-control"
-              id="select-all-agents"
-              name="select-all-agents"
-            />
-            <div class="mdc-checkbox__background">
-              <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                <path
-                  class="mdc-checkbox__checkmark-path"
-                  fill="none"
-                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
-                />
-              </svg>
-              <div class="mdc-checkbox__mixedmark"></div>
-            </div>
-            <div class="mdc-checkbox__ripple"></div>
-          </div>
-        </div>
-
-        <label for="select-all-agents">Select all agents.</label>
+        <input
+          type="checkbox"
+          id="select-all-agents"
+          name="select-all-agents"
+        />
+        <label for="select-all-agents">Select all agents</label>
         <p class="footnote" style="margin-top: 0">
           If there are more agents than trials, the study will present a random
           subset of the selected agents. <br />
