@@ -17,7 +17,6 @@ export function initDatastructure() {
 
   if (storedChoices) {
     studyChoices = JSON.parse(storedChoices);
-    console.log('tango', studyChoices);
   } else {
     console.error('No data found in local storage');
   }

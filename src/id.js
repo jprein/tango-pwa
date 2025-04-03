@@ -81,7 +81,7 @@ const handleContinueClick = (event) => {
   studyChoices.subjID = document.getElementById('participant-id').value;
   // save the choices to local storage
   localStorage.setItem('storedChoices', JSON.stringify(studyChoices));
-  window.location.href = `./tango.html?lang=${studyChoices.lang}&touch=${studyChoices.touch}&fam=${studyChoices.fam}&test=${studyChoices.test}&bg=${studyChoices.bg}&agents=${studyChoices.agents}&ID=${studyChoices.subjID}&webcam=${studyChoices.webcam}`;
+  window.location.href = './tango.html';
 };
 
 button.addEventListener('click', handleContinueClick, { capture: false });

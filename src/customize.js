@@ -182,6 +182,6 @@ const handleContinueClick = () => {
   studyChoices.fam = parseInt(fam.value);
   studyChoices.test = parseInt(test.value);
   localStorage.setItem('storedChoices', JSON.stringify(studyChoices));
-  window.location.href = `./id.html?lang=${studyChoices.lang}&touch=${studyChoices.touch}&fam=${studyChoices.fam}&test=${studyChoices.test}&bg=${selectedBackground}&agents=${selectedAgents}`;
+  window.location.href = './id.html';
 };
 button.addEventListener('click', handleContinueClick, { capture: false });
