@@ -113,14 +113,23 @@ const handleContinueClick = (event) => {
       break;
   }
 
-  // if wanted, continue to customize page
-  if (customize === 'true') {
-    window.location.href = `./customize.html?lang=${lang}&agents=${agents}&bg=${bg}&touch=1&fam=2&test=16`;
+  // Store data in local storage
+  const studyChoices = {
+    lang,
+    agents,
+    bg,
+    touch: '1',
+    fam: '2',
+    test: '16',
+  };
 
-    // otherwise, jump directly to study start
+  localStorage.setItem('storedChoices', JSON.stringify(studyChoices));
+
+  // Navigate to the appropriate page
+  if (customize === 'true') {
+    window.location.href = './customize.html';
   } else {
-    window.location.href = `./id.html?lang=${lang}&touch=1&fam=2&test=16&bg=${bg}&agents=${agents}`;
-    //window.location.href = `./id.html`;
+    window.location.href = './id.html';
   }
 };
 

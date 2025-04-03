@@ -11,7 +11,16 @@ import * as DetectRTC from 'detectrtc';
  *     initDatastructure()
  */
 export function initDatastructure() {
-  const url = new URL(document.location.href);
+  // get study choices from local storage
+  const storedChoices = localStorage.getItem('storedChoices');
+  let studyChoices;
+
+  if (storedChoices) {
+    studyChoices = JSON.parse(storedChoices);
+    console.log('tango', studyChoices);
+  } else {
+    console.error('No data found in local storage');
+  }
 
   const exp = {
     devmode: false, // true speeds up developing (e.g. playback rate)
@@ -23,15 +32,14 @@ export function initDatastructure() {
 
     meta: {
       // get some values out of URL parameters, handed over from index.html, entered by users
-      subjID: url.searchParams.get('ID') || 'testID',
-      lang: url.searchParams.get('lang') || 'eng-uk',
-      webcam: JSON.parse(url.searchParams.get('webcam')) || false,
-      nrTouch: parseInt(url.searchParams.get('touch')) || 1,
-      nrFam: parseInt(url.searchParams.get('fam')) || 1,
-      nrTest: parseInt(url.searchParams.get('test')) || 2,
-      bg: url.searchParams.get('bg') || '04',
-      agents:
-        url.searchParams.get('agents') || 'f01-f02-f03-f04-m04-m05-m06-m07-m08',
+      subjID: studyChoices.subjID || 'testID',
+      lang: studyChoices.lang || 'eng-uk',
+      webcam: JSON.parse(studyChoices.webcam) || false,
+      nrTouch: parseInt(studyChoices.touch) || 1,
+      nrFam: parseInt(studyChoices.fam) || 1,
+      nrTest: parseInt(studyChoices.test) || 2,
+      bg: studyChoices.bg || '04',
+      agents: studyChoices.agents || 'f01-f02-f03-f04-m04-m05-m06-m07-m08',
       // save some setting values
       touchscreen: checkForTouchscreen(),
       offsetHeight: document.body.offsetHeight,

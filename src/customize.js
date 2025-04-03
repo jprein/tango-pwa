@@ -5,19 +5,25 @@ window.addEventListener('load', function () {
 });
 
 // store already selected variables from index page
-const url = new URL(document.location.href);
-const lang = url.searchParams.get('lang') || 'eng-uk';
-let selectedAgents = url.searchParams.get('agents');
-let selectedBackground = url.searchParams.get('bg');
-const webcam = JSON.parse(url.searchParams.get('webcam')) || false;
+const storedChoices = localStorage.getItem('storedChoices');
+let studyChoices;
 
-// TRIAL NUMBERS
-// for touch, fam and test, check whether user input is valid
+if (storedChoices) {
+  studyChoices = JSON.parse(storedChoices);
+} else {
+  console.error('No data found in local storage');
+}
+
+let selectedAgents = studyChoices.agents;
+let selectedBackground = studyChoices.bg;
+
 const touch = document.getElementById('touch');
 const fam = document.getElementById('fam');
 const test = document.getElementById('test');
 const trialNumbers = [touch, fam, test];
 
+// TRIAL NUMBERS
+// for touch, fam and test, check whether user input is valid
 trialNumbers.forEach((trial) => {
   trial.addEventListener('input', function () {
     // minimum 1, maximum 100
@@ -53,6 +59,7 @@ function selectBackground(image) {
   const selectedImage = document.querySelector(`.bg-img[id="${imgID}"]`);
   selectedImage.classList.add('selected');
   selectedBackground = imgID;
+  studyChoices.bg = selectedBackground;
 }
 
 // attach the event listener
@@ -79,6 +86,7 @@ function selectAgents(image) {
     }
   }
   selectedAgents = selectedAgentsArray.join('-');
+  studyChoices.agents = selectedAgents;
 }
 // Attach the event listener to all images once they're loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -162,14 +170,18 @@ allagentsCheckbox.addEventListener('change', function (e) {
     selectedAgentsArray = [];
   }
   selectedAgents = selectedAgentsArray.join('-');
+  studyChoices.agents = selectedAgents;
 });
 
 // continue on button click
 const button = document.getElementById('continue-button');
+
 const handleContinueClick = () => {
-  const touch = parseFloat(document.getElementById('touch').value);
-  const fam = parseFloat(document.getElementById('fam').value);
-  const test = parseFloat(document.getElementById('test').value);
-  window.location.href = `./id.html?lang=${lang}&touch=${touch}&fam=${fam}&test=${test}&bg=${selectedBackground}&agents=${selectedAgents}`;
+  // update local storage with all choices
+  studyChoices.touch = parseInt(touch.value);
+  studyChoices.fam = parseInt(fam.value);
+  studyChoices.test = parseInt(test.value);
+  localStorage.setItem('storedChoices', JSON.stringify(studyChoices));
+  window.location.href = `./id.html?lang=${studyChoices.lang}&touch=${studyChoices.touch}&fam=${studyChoices.fam}&test=${studyChoices.test}&bg=${selectedBackground}&agents=${selectedAgents}`;
 };
 button.addEventListener('click', handleContinueClick, { capture: false });

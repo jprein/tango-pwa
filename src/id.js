@@ -1,16 +1,17 @@
 import './css/style.css';
 import * as mrec from '@ccp-eva/media-recorder';
 
+const storedChoices = localStorage.getItem('storedChoices');
+let studyChoices;
+
+if (storedChoices) {
+  studyChoices = JSON.parse(storedChoices);
+} else {
+  console.error('No data found in local storage');
+}
+
 const button = document.getElementById('start-button');
 let continueIDOK = false;
-// store already selected variables from index page
-const url = new URL(document.location.href);
-const lang = url.searchParams.get('lang') || 'eng-uk';
-const agents = url.searchParams.get('agents');
-const bg = url.searchParams.get('bg');
-const touch = url.searchParams.get('touch');
-const fam = url.searchParams.get('fam');
-const test = url.searchParams.get('test');
 
 // FOR INPUT FORM
 const textField = document.getElementById('participant-id');
@@ -33,12 +34,12 @@ textField.addEventListener('keyup', handleInput, { capture: false });
 
 // WEBCAM YES OR NO?
 const webcamOptions = document.getElementsByName('webcam-options');
-let webcam = 'false'; // no as default
+studyChoices.webcam = 'false'; // no as default
 
 for (const option of webcamOptions) {
   option.onclick = () => {
     if (option.checked) {
-      webcam = option.value;
+      studyChoices.webcam = option.value;
     }
   };
 }
@@ -77,9 +78,10 @@ webcamButton.addEventListener('click', handleWebcamClick, { capture: false });
 // define what happens on button click
 const handleContinueClick = (event) => {
   event.preventDefault();
-  const subjID = document.getElementById('participant-id').value;
-
-  window.location.href = `./tango.html?lang=${lang}&touch=${touch}&fam=${fam}&test=${test}&bg=${bg}&agents=${agents}&ID=${subjID}&webcam=${webcam}`;
+  studyChoices.subjID = document.getElementById('participant-id').value;
+  // save the choices to local storage
+  localStorage.setItem('storedChoices', JSON.stringify(studyChoices));
+  window.location.href = `./tango.html?lang=${studyChoices.lang}&touch=${studyChoices.touch}&fam=${studyChoices.fam}&test=${studyChoices.test}&bg=${studyChoices.bg}&agents=${studyChoices.agents}&ID=${studyChoices.subjID}&webcam=${studyChoices.webcam}`;
 };
 
 button.addEventListener('click', handleContinueClick, { capture: false });
