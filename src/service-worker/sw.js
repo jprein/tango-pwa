@@ -18,10 +18,12 @@ cleanupOutdatedCaches();
 
 /** @type {RegExp[] | undefined} */
 let allowlist;
-// in dev mode, we disable precaching to avoid caching issues
+// In dev mode, only allow the root URL
 if (import.meta.env.DEV) allowlist = [/^\/$/];
+// In prod mode, allow all HTML pages
+if (import.meta.env.PROD) allowlist = [/^\/$/];
 
-// to allow work offline
+// To allow work offline
 registerRoute(
   new NavigationRoute(createHandlerBoundToURL('index.html'), { allowlist }),
 );
