@@ -16,6 +16,7 @@ export default defineConfig({
         id: './src/id.html',
         tango: './src/tango.html',
         goodbye: './src/goodbye.html',
+        manual: './src/manual.html',
       },
     },
   },
@@ -42,7 +43,7 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/favicon.svg',
+            src: './favicon.svg',
             sizes: '192x192',
             type: 'image/svg+xml',
           },
