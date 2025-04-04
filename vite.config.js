@@ -40,11 +40,25 @@ export default defineConfig({
         name: 'TANGO-CC',
         short_name: 'TANGO-CC',
         description: 'This is the TANGO-CC as a PWA.',
-        theme_color: '#ffffff',
+        background_color: '#006c66',
+        theme_color: '#006c66',
+        start_url: './',
+        display: 'fullscreen',
+        orientation: 'landscape',
         icons: [
           {
-            src: './favicon.svg',
+            src: './pwa-192x192.png',
             sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: './pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: './favicon.svg',
+            sizes: 'any',
             type: 'image/svg+xml',
           },
         ],
