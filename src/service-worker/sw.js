@@ -17,11 +17,7 @@ precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();
 
 /** @type {RegExp[] | undefined} */
-let allowlist;
-// In dev mode, only allow the root URL
-if (import.meta.env.DEV) allowlist = [/^\/$/];
-// In prod mode, allow all HTML pages
-if (import.meta.env.PROD) allowlist = [/^\/$/];
+const allowlist = [/^\/$/]; // Same allowlist for both dev and prod modes
 
 // To allow work offline
 registerRoute(
