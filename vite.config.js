@@ -1,13 +1,13 @@
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: './src',
-  publicDir: '../public',
+  base: '', // Use relative paths for assets
+  root: './src', // Set the root directory to 'src'
+  publicDir: '../public', // Set the public directory to 'public', use .. so it is not nested within the src folder
   build: {
-    outDir: '../dist',
+    outDir: '../dist', // Set the output directory to 'dist', use .. so it is not nested within the src folder
     emptyOutDir: true,
     rollupOptions: {
       input: {

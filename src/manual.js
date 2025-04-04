@@ -1,3 +1,5 @@
+import './css/style.css';
+
 document.addEventListener('DOMContentLoaded', function () {
   const questions = Array.from(document.querySelectorAll('.faq-question'));
   const answers = Array.from(document.querySelectorAll('.faq-answer'));

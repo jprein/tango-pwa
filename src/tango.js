@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // import experiment SVG
   const tangoSVGdiv = document.getElementById('tango-svg');
   try {
-    const response = await fetch('/images/tango.svg');
+    const response = await fetch('./images/tango.svg');
     const svgContent = await response.text();
     tangoSVGdiv.innerHTML = svgContent;
   } catch (error) {
