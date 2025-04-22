@@ -558,31 +558,11 @@
           <div class="faq-question">Can I let the study run offline?</div>
           <div class="faq-answer">
             <p>
-              Yes, you can! The basic logic for an offline data collection is as
-              follows:
+              Yes, you can! The TANGO-CC website is a Progressive Web App (PWA), which allows you to run the study offline without requiring a live server or internet connection. A PWA behaves like a native app, offering offline functionality and improved performance, all from your browser.
             </p>
-            <ul>
-              <li>
-                A live server opens the website. The name “live” server is a bit
-                confusing. It is not actually live in the sense of “online”. It
-                just means that it can host a website locally, so that you do
-                not need to upload the website content somewhere else. This way,
-                you do not need WIFI connection. You can just open this “live
-                server” on your local device.
-              </li>
-              <li>
-                The live server then displays the website by running the content
-                of our so-called “dist” folder. This folder stores all the audio
-                files, script etc. that the website needs. We have this folder
-                ready for use, you can download it from the
-                <a
-                  href="https://github.com/ccp-eva/tango-cc/tree/main/dist"
-                  target="_blank"
-                  >TANGO-CC GitHub page</a
-                >
-                .
-              </li>
-            </ul>
+            <p>
+              To use the PWA, simply visit the TANGO-CC website using a Chromium-based browser (like Google Chrome or Microsoft Edge). Once the page is fully loaded, you will see a pop-up menu asking you if you'd like to install the app. After installation, you can run the study offline without needing an internet connection. The app will be available directly on your device's home screen, just like a native app.
+              </p>
           </div>
 
           <div class="faq-question">
@@ -657,111 +637,6 @@ echo '{ "success": true }';
 ?&gt;
               </code>
             </pre>
-          </div>
-
-          <div class="faq-question">
-            How can I set up a live server on Mac or Windows?
-          </div>
-          <div class="faq-answer">
-            <p>
-              Setting up a live server on a Mac or Windows requires similar
-              steps.
-            </p>
-            <ol>
-              <li>
-                Install Node.js on your device. You can download it from the
-                official website:
-                <a href="https://nodejs.org/en/download" target="_blank"
-                  >Node.js</a
-                >
-              </li>
-              <li>
-                <em>For Mac: </em> Open the Terminal.
-                <em>For Windows: </em> Open Command Prompt.
-              </li>
-              <li>
-                Install the live-server package globally using npm (Node Package
-                Manager, which comes with Node.js) with the following command:
-                <br />
-                <code># npm i -g live-server</code>
-              </li>
-              <li>
-                Navigate to the directory which contains the TANGO-CC dist
-                folder, using the cd command. For example, if the dist folder is
-                in a directory called tangocc on your Desktop:
-                <br />
-                <em>For Mac: </em> <code># cd ~/Desktop/tangocc/dist</code>
-                <br />
-                <em>For Windows: </em>
-                <code># cd C:\Users\username\Desktop\tangocc\dist</code>
-              </li>
-              <li>
-                Once you're in the right directory, you can start the live
-                server with the following command:
-                <br />
-                <code># live-server</code>
-              </li>
-              <li>
-                This will start the live server and open your default web
-                browser to display your project. If you make changes to your
-                project files, the browser will automatically refresh to show
-                the changes.
-              </li>
-            </ol>
-          </div>
-
-          <div class="faq-question">
-            How can I set up a live server on Android?
-          </div>
-          <div class="faq-answer">
-            <p>
-              Setting up a live server on an Android tablet is a bit more
-              complex than on a desktop operating system, but it's possible with
-              the help of Termux, a Linux environment for Android. Here are the
-              steps:
-            </p>
-            <ol type="1">
-              <li>
-                Install termux (from the play store or from the
-                <a
-                  href="https://f-droid.org/repo/com.termux_118.apk"
-                  target="_blank"
-                  >website</a
-                >).
-              </li>
-              <li>Open Termux.</li>
-              <li>
-                Update the linux packages: <br />
-                <code># apt update</code> <br />
-                <code># apt upgrade</code>
-              </li>
-              <li>
-                In the console, activate the access to your device folders:
-                <br />
-                <code># termux-setup-storage</code>
-              </li>
-              <li>
-                Install Node.js using the following command: <br />
-                <code># pkg install nodejs</code>
-              </li>
-              <li>
-                Install the live-server package globally using npm (Node Package
-                Manager, which comes with Node.js) with the following command:
-                <br />
-                <code># npm i -g live-server</code>
-              </li>
-              <li>
-                Navigate to the directory of your project using the cd command.
-                For example, if the TANGO-CC dist folder is in your downloads
-                folder, you would use: <br />
-                <code>cd storage/downloads/dist</code>
-              </li>
-              <li>
-                Once you're in your project's directory, you can start the live
-                server with the following command: <br />
-                <code># live-server</code>
-              </li>
-            </ol>
           </div>
 
           <div class="faq-question">
