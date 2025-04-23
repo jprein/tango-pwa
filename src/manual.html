@@ -652,22 +652,7 @@ echo '{ "success": true }';
               to all other downloads as well).
             </p>
           </div>
-
-          <div class="faq-question">
-            For the offline version of the study, can I create a shortcut on my
-            desktop?
-          </div>
-          <div class="faq-answer">
-            <p>
-              Yes, of course! Please first make sure that you enabled the live
-              server (see questions above). If everything works as expected,
-              make a cmd shortcut on the desktop that looks like this (example
-              for Microsoft Surface Pro device):
-              <code>%windir%\system32\cmd.exe /k live-server</code>. In the
-              shortcut settings, enter the correct pathway to the "dist" folder.
-            </p>
-          </div>
-
+           
           <h3>Trouble Shooting</h3>
 
           <div class="faq-question">
@@ -739,8 +724,9 @@ echo '{ "success": true }';
             <p>For the offline version:</p>
             <ul>
               <li>
-                Please make sure your device has a live server installed. Please
-                open the index.html file with this live server!
+              Please make sure the PWA is properly installed or opened in a
+  supported browser. You can test if it's working offline by
+  disconnecting from the internet and reloading the page.
               </li>
               <li>
                 For Android, check that the termux app has rights for accessing
