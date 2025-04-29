@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TANGO-CC</title>
+    <script type="module" crossorigin src="./assets/index-kMe9vrRX.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="./assets/style-DzoZmYqJ.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#006c66">
+<link rel="icon" href="./favicon.ico" sizes="48x48">
+<link rel="icon" href="./favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180x180.png"></head>
+  <body>
+    <div id="app">
+      <div id="pwa-toast" role="alert" aria-labelledby="toast-message">
+        <div class="message">
+          <span id="toast-message"></span>
+        </div>
+
+        <button type="button" class="custom-button" id="pwa-refresh">
+          <span><strong>RELOAD</strong></span>
+        </button>
+
+        <button type="button" class="custom-button" id="pwa-close">
+          <span><strong>CLOSE</strong></span>
+        </button>
+      </div>
+
+      <div id="flex-wrapper">
+        <div class="flex-item">
+          <h1 class="heading">Welcome to TANGO-CC</h1>
+
+          <!-- <div>
+            <img id="logo-tango" src="./favicon.svg" />
+          </div> -->
+
+          <h3>
+            Thanks for your interest in our gaze understanding task. <br />
+            Please use the following reference:
+          </h3>
+
+          <p>
+            Prein, J.C., Bednarski, F. M., Dzabatou, A., Frank, M. C.,
+            Henderson, A. M. E., Kalbitz, J., Kanngiesser, P., Keşşafoğlu, D.,
+            Köymen, B., Manrique-Hernandez, M. V., Magazi, S., Mújica-Manrique,
+            L., Ohlendorf, J., Olaoba, D., Pieters, W. R., Pope-Caldwell, S.,
+            Sen, U., Slocombe, K., Sparks, R. Z., Stengelin, R., Sunderarajan,
+            J., Sutherland, K., Tusiime, F., Vieira, W., Zhang, Z., Zong, Y.,
+            Haun, D. B. M.*, Bohn, M.* (2025). <br />
+
+            Measuring Variation in Gaze Following Across Communities, Ages, and
+            Individuals: A Showcase of TANGO-CC
+            <br />
+            (Task for Assessing iNdividual differences in Gaze
+            understanding-Open-Cross-Cultural).
+            <br />
+            <em>
+              Advances in Methods and Practices in Psychological Science, 8</em
+            >(1), Article 25152459241308170.
+            <br />
+            <a href="https://doi.org/10.1177/25152459241308170"
+              >https://doi.org/10.1177/25152459241308170</a
+            >
+          </p>
+
+          <h3>
+            First time here? Have a look at our
+            <a href="./manual.html" target="_blank"> Manual </a>
+          </h3>
+
+          <div
+            style="border: 1px solid black; padding: 5px; border-radius: 10px"
+          >
+            <h3>
+              The TANGO-CC is now available as a Progressive Web App (PWA).
+            </h3>
+            <p>
+              A PWA is a web application that behaves like a native app. The
+              TANGO-CC can be installed on your device and run offline once it
+              has cached all its resources. A little pop-up menu will inform you
+              when the website is ready to run offline. Please note that you
+              will need to enable the PWA again if you delete your browser
+              cache.
+            </p>
+          </div>
+
+          <hr style="width: 100%; text-align: left; margin-left: 0" />
+
+          <p class="text">
+            <strong> Please select a language: </strong>
+          </p>
+          <select id="language-options">
+            <option value="bem">Bemba (Zambia)</option>
+            <option value="chi">Chinese (China)</option>
+            <option value="eng-in">English (India)</option>
+            <option value="eng-nz">English (New Zealand)</option>
+            <option value="eng-ni">English (Nigeria)</option>
+            <option value="eng-uk" selected>English (UK)</option>
+            <option value="eng-us">English (USA)</option>
+            <option value="ger">German (Germany)</option>
+            <option value="hai">Hai||om (Namibia)</option>
+            <option value="khw">Khwedam (Namibia)</option>
+            <option value="lin">Lingala (Rep. Congo)</option>
+            <option value="mar">Marathi (India)</option>
+            <option value="sho">Shona (Zimbabwe)</option>
+            <option value="spa-ar">Spanish (Argentina)</option>
+            <option value="spa-me">Spanish (Mexico)</option>
+            <option value="swa">Kiswahili (Uganda)</option>
+            <option value="tur">Turkish (Türkiye)</option>
+            <option value="bay">Yaka (Rep. Congo)</option>
+            <option value="custom">Custom (see instruction page)</option>
+          </select>
+
+          <p class="text">
+            <strong> Do you want to further customize the TANGO-CC? </strong>
+          </p>
+
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="customize-options"
+              value="false"
+              checked
+            />
+            No, use the default settings
+          </label>
+          <br />
+          <label class="radio-label">
+            <input type="radio" name="customize-options" value="true" />
+            Yes, let me choose the trial numbers, background, and agents
+          </label>
+
+          <br />
+          <br />
+
+          <div class="button-center-wrapper">
+            <button type="button" class="custom-button" id="continue-button">
+              <span><strong>CONTINUE</strong></span>
+            </button>
+          </div>
+
+          <br />
+
+          <hr style="width: 100%; text-align: left; margin-left: 0" />
+
+          <div class="columns">
+            <div class="col">
+              <img id="logo-ccp" src="./logos/mpi-ccp-en.svg" />
+            </div>
+            <div class="col">
+              <img id="logo-leuphana" src="./logos/leuphana-en.svg" />
+            </div>
+          </div>
+
+          <p class="imprint">
+            <a href="https://www.eva.mpg.de/imprint/" target="_blank"
+              >Imprint</a
+            >
+            /
+            <a
+              href="https://www.eva.mpg.de/privacy-policy"
+              target="_blank"
+              id="dataProtection"
+            >
+              Data Protection</a
+            >
+          </p>
+
+          <!-- end flex-item -->
+        </div>
+
+        <!-- end flex-wrapper -->
+      </div>
+    </div>
+  </body>
+</html>
