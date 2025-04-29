@@ -158,10 +158,10 @@
             <p>
               If you want to add other features to the TANGO-CC, you can do so
               by editing the code. Please visit our public GitHub repository:
-              <a href="https://github.com/ccp-eva/tango-cc"
-                >https://github.com/ccp-eva/tango-cc</a
+              <a href="https://github.com/jprein/tango-pwa/"
+                >https://github.com/jprein/tango-pwa/</a
               >. Clone the repo to your personal device (<code
-                >git clone git@github.com:ccp-eva/tango-cc.git</code
+                >git clone git@github.com:jprein/tango-pwa/.git</code
               >) and start experimenting! Please note that we cannot offer
               individual coding counselling or website hosting for your own
               version of the task. We developed this task on macOS and use
@@ -349,8 +349,9 @@
               The task does not require a certain screen size. It even runs on
               smartphones. However, we would recommend a bigger screen for
               better handling and touch precision. What you do need is either a
-              working internet connection or installing a live server.
-              Intel-based tablets might be easier to set this up.
+              working internet connection or installing the TANGO-CC as a
+              Progressive Web App (PWA) that can run without internet. For
+              further information, see the section on Technical Setup.
             </p>
           </div>
 
@@ -397,7 +398,42 @@
               settings seemed to enjoy the task. Some children needed to get
               familiar with touching the screen, but this was not a problem (see
               question "Do my participants need to have experience with
-              computers or touchscreens?").
+              computers or touchscreens?"). You can read more about this in our
+              papers:
+            </p>
+
+            <p>
+              Bohn, M.*, Prein, J. C.*, Ayikoru, A., Bednarski, F. M., Dzabatou,
+              A., Frank, M. C., Henderson, A. M. E., Isabella, J., Kalbitz, J.,
+              Kanngiesser, P., Keşşafoğlu, D., Koymen, B., Manrique-Hernandez,
+              M., Magazi, S., Mújica-Manrique, L., Ohlendorf, J., Olaoba, D.,
+              Pieters, W., Pope-Caldwell, S., … Haun, D. (2025). A universal of
+              human social cognition: Children from 17 communities process gaze
+              in similar ways.
+              <em>PsyArXiv.</em>
+              <a href="https://doi.org/10.31234/osf.io/z3ahv"
+                >https://doi.org/10.31234/osf.io/z3ahv</a
+              >
+            </p>
+
+            <p>
+              Prein, J.C., Bednarski, F. M., Dzabatou, A., Frank, M. C.,
+              Henderson, A. M. E., Kalbitz, J., Kanngiesser, P., Keşşafoğlu, D.,
+              Köymen, B., Manrique-Hernandez, M. V., Magazi, S.,
+              Mújica-Manrique, L., Ohlendorf, J., Olaoba, D., Pieters, W. R.,
+              Pope-Caldwell, S., Sen, U., Slocombe, K., Sparks, R. Z.,
+              Stengelin, R., Sunderarajan, J., Sutherland, K., Tusiime, F.,
+              Vieira, W., Zhang, Z., Zong, Y., Haun, D. B. M.*, Bohn, M.*
+              (2025). Measuring Variation in Gaze Following Across Communities,
+              Ages, and Individuals: A Showcase of TANGO-CC (Task for Assessing
+              iNdividual differences in Gaze understanding-Open-Cross-Cultural).
+              <em>
+                Advances in Methods and Practices in Psychological Science,
+                8</em
+              >(1), Article 25152459241308170.
+              <a href="https://doi.org/10.1177/25152459241308170"
+                >https://doi.org/10.1177/25152459241308170</a
+              >
             </p>
           </div>
 
@@ -493,12 +529,14 @@
           <div class="faq-question">What quality of data can I expect?</div>
           <div class="faq-answer">
             <p>
-              In a recent study, we tested the reliability and internal
-              consistency of the TANGO. We found that the task is able to
-              capture individual differences between children and adults. High
+              In two recent studies, we tested the reliability and internal
+              consistency of the TANGO. First, we worked with a German sample,
+              then we tested the generalizability of the task in a big
+              cross-cultural data set. We found that the task is able to capture
+              individual differences in children as well as adults. High
               internal consistency and test-retest reliability estimates
               underline that the captured variation is systematic. You can read
-              more about this in our paper:
+              more about this in our papers:
             </p>
 
             <p>
@@ -511,9 +549,71 @@
                 >https://doi.org/10.3758/s13428-023-02159-5</a
               >
             </p>
+
+            <p>
+              Prein, J.C., Bednarski, F. M., Dzabatou, A., Frank, M. C.,
+              Henderson, A. M. E., Kalbitz, J., Kanngiesser, P., Keşşafoğlu, D.,
+              Köymen, B., Manrique-Hernandez, M. V., Magazi, S.,
+              Mújica-Manrique, L., Ohlendorf, J., Olaoba, D., Pieters, W. R.,
+              Pope-Caldwell, S., Sen, U., Slocombe, K., Sparks, R. Z.,
+              Stengelin, R., Sunderarajan, J., Sutherland, K., Tusiime, F.,
+              Vieira, W., Zhang, Z., Zong, Y., Haun, D. B. M.*, Bohn, M.*
+              (2025). Measuring Variation in Gaze Following Across Communities,
+              Ages, and Individuals: A Showcase of TANGO-CC (Task for Assessing
+              iNdividual differences in Gaze understanding-Open-Cross-Cultural).
+              <em>
+                Advances in Methods and Practices in Psychological Science,
+                8</em
+              >(1), Article 25152459241308170.
+              <a href="https://doi.org/10.1177/25152459241308170"
+                >https://doi.org/10.1177/25152459241308170</a
+              >
+            </p>
           </div>
 
           <h3>Technical Setup</h3>
+
+          <div class="faq-question">
+            How do you pass on the selected options to the study website?
+          </div>
+          <div class="faq-answer">
+            <p>
+              We use the browser's local storage to pass on the selected options
+              to the study website. When you make a selection (e.g. language or
+              agents' faces), it is saved in local storage using JavaScript.
+              When you pass through all pages in the intended order, all study
+              choices will be set and saved in the local storage. When you skip
+              a page and directly go to the study page (tango.html), some study
+              choices might be missing and sensible default values will be set.
+              This ensures that the study can still run smoothly even if some
+              selections are skipped.
+            </p>
+          </div>
+
+          <div class="faq-question">
+            I want to collect data of several participants using the same
+            language and stimuli settings. Can the website save my selected,
+            customized study options?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, it can! The website saves the selected study options in the
+              browser's local storage. This means that if you open the website
+              on the same device and browser, the selected options will be
+              remembered. However, please note that this only works if you do
+              not clear (i.e., delete) your browser's cache or local storage. If
+              you want to collect data from several participants using the same
+              study settings, simply open the website on the same device and
+              browser, and the selected options will be automatically applied.
+              We recommend going through the customization process once and then
+              saving the page where you are asked to enter the participant ID as
+              a bookmark:
+              <a href="https://devpsy.web.leuphana.de/tango-pwa/id.html"
+                >https://devpsy.web.leuphana.de/tango-pwa/id.html</a
+              >.This way, you can easily access the study with the same
+              customization options but enter new participant IDs each time.
+            </p>
+          </div>
 
           <div class="faq-question">
             Do I need to finish the study in order to download the data?
@@ -537,11 +637,46 @@
           <div class="faq-question">Can I let the study run offline?</div>
           <div class="faq-answer">
             <p>
-              Yes, you can! The TANGO-CC website is a Progressive Web App (PWA), which allows you to run the study offline without requiring a live server or internet connection. A PWA behaves like a native app, offering offline functionality and improved performance, all from your browser.
+              Yes, you can! The TANGO-CC website is a Progressive Web App (PWA),
+              which allows you to run the study offline without requiring a live
+              is a type of web application that can be installed on your device
+              and run offline like a native application. It caches the necessary
+              you will need to reload the website while connected to the
+              internet to cache the resources again. This ensures that the PWA
+              can function offline properly.
             </p>
             <p>
-              To use the PWA, simply visit the TANGO-CC website using a Chromium-based browser (like Google Chrome or Microsoft Edge). Once the page is fully loaded, you will see a pop-up menu asking you if you'd like to install the app. After installation, you can run the study offline without needing an internet connection. The app will be available directly on your device's home screen, just like a native app.
-              </p>
+              To use the PWA, simply visit the TANGO-CC website. Once the page
+              is fully loaded, you will see a pop-up menu informing you that the
+              website is ready to run offline. To install the app, the next
+              steps depend on the browser you use. To see how you can download
+              the PWA in Google Chrome or Safari, see the screenshots below.
+              Once the PWA is installed, the TANGO-CC will be available directly
+              on your device's home screen or applications folder, just like a
+              native app.
+            </p>
+
+            <div class="columns">
+              <div class="col">
+                <img
+                  src="./images/install_pwa_chrome.png"
+                  alt="How to install a PWA in Google Chrome"
+                />
+                <figcaption>
+                  Example for installing the PWA in Google Chrome.
+                </figcaption>
+              </div>
+              <div class="col">
+                <img
+                  src="./images/install_pwa_safari.png"
+                  alt="How to install a PWA in Safari"
+                />
+                <figcaption>
+                  Example for installing the PWA in Safari.
+                </figcaption>
+              </div>
+            </div>
+            <br />
           </div>
 
           <div class="faq-question">
@@ -551,7 +686,7 @@
             <p>
               Yes, you can! You can download the "dist" folder from TANGO-CC on
               <a
-                href="https://github.com/ccp-eva/tango-cc/tree/main/dist"
+                href="https://github.com/jprein/tango-pwa/tree/main/dist"
                 target="_blank"
                 >GitHub</a
               >
@@ -574,7 +709,7 @@
               Yes, you could. However, this requires some technical setup and
               programming knowledge. You can download the source code from
               TANGO-CC online (<a
-                href="https://github.com/ccp-eva/tango-cc/tree/main/dist"
+                href="https://github.com/jprein/tango-pwa/tree/main/dist"
                 target="_blank"
                 >GitHub</a
               >). Then, you would need to adapt the "downloadData.js" function
@@ -631,7 +766,7 @@ echo '{ "success": true }';
               to all other downloads as well).
             </p>
           </div>
-           
+
           <h3>Trouble Shooting</h3>
 
           <div class="faq-question">
@@ -703,14 +838,18 @@ echo '{ "success": true }';
             <p>For the offline version:</p>
             <ul>
               <li>
-              Please make sure the PWA is properly installed or opened in a
-  supported browser. You can test if it's working offline by
-  disconnecting from the internet and reloading the page.
+                Please make sure the PWA is properly installed. The website
+                needs a couple of minutes to complete cache of all its
+                resources.
               </li>
               <li>
-                For Android, check that the termux app has rights for accessing
-                files and media on your device. Check that you navigated into
-                the right folder (using the cd command in the console).
+                Try opening the TANGO-CC with another browser. We recommend
+                using a Chromium-based browser, e.g. Google Chrome or Microsoft
+                Edge.
+              </li>
+              <li>
+                You can test if the TANGO-CC is working offline by disconnecting
+                from the internet and reloading the page.
               </li>
             </ul>
             <p>
@@ -757,7 +896,7 @@ echo '{ "success": true }';
               A., Frank, M. C., Henderson, A. M. E., Isabella, J., Kalbitz, J.,
               Kanngiesser, P., Keşşafoğlu, D., Koymen, B., Manrique-Hernandez,
               M., Magazi, S., Mújica-Manrique, L., Ohlendorf, J., Olaoba, D.,
-              Pieters, W., Pope-Caldwell, S., … Haun, D. (2024). A universal of
+              Pieters, W., Pope-Caldwell, S., … Haun, D. (2025). A universal of
               human social cognition: Children from 17 communities process gaze
               in similar ways.
               <em>PsyArXiv.</em>
@@ -773,10 +912,17 @@ echo '{ "success": true }';
               Mújica-Manrique, L., Ohlendorf, J., Olaoba, D., Pieters, W. R.,
               Pope-Caldwell, S., Sen, U., Slocombe, K., Sparks, R. Z.,
               Stengelin, R., Sunderarajan, J., Sutherland, K., Tusiime, F.,
-              Vieira, W., Zhang, Z., Zong, Y., Haun, D. B. M.*, Bohn, M.*.
-              (2024). Measuring variation in gaze following across communities,
-              ages, and individuals – a showcase of the TANGO–CC.
-              <em>PsyArxiv.</em>
+              Vieira, W., Zhang, Z., Zong, Y., Haun, D. B. M.*, Bohn, M.*
+              (2025). Measuring Variation in Gaze Following Across Communities,
+              Ages, and Individuals: A Showcase of TANGO-CC (Task for Assessing
+              iNdividual differences in Gaze understanding-Open-Cross-Cultural).
+              <em>
+                Advances in Methods and Practices in Psychological Science,
+                8</em
+              >(1), Article 25152459241308170.
+              <a href="https://doi.org/10.1177/25152459241308170"
+                >https://doi.org/10.1177/25152459241308170</a
+              >
             </p>
           </div>
 
