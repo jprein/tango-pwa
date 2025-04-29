@@ -4,10 +4,13 @@ import * as mrec from '@ccp-eva/media-recorder';
 const storedChoices = localStorage.getItem('storedChoices');
 let studyChoices;
 
+// If we find data in local storage, set studyChoices to that data
 if (storedChoices) {
   studyChoices = JSON.parse(storedChoices);
 } else {
-  console.error('No data found in local storage');
+  console.log(
+    'No data found in local storage. Creating a studyChoices object.',
+  );
 }
 
 const button = document.getElementById('start-button');

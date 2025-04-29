@@ -8,10 +8,13 @@ window.addEventListener('load', function () {
 const storedChoices = localStorage.getItem('storedChoices');
 let studyChoices;
 
+// If we find data in local storage, set studyChoices to that data
 if (storedChoices) {
   studyChoices = JSON.parse(storedChoices);
 } else {
-  console.error('No data found in local storage');
+  console.log(
+    'No data found in local storage. Creating a studyChoices object.',
+  );
 }
 
 let selectedAgents = studyChoices.agents;

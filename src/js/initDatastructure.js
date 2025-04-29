@@ -15,10 +15,45 @@ export function initDatastructure() {
   const storedChoices = localStorage.getItem('storedChoices');
   let studyChoices;
 
+  // If we find data in local storage, set studyChoices to that data
   if (storedChoices) {
     studyChoices = JSON.parse(storedChoices);
   } else {
-    console.error('No data found in local storage');
+    console.log(
+      'No data found in local storage. Creating a studyChoices object.',
+    );
+  }
+
+  // Define default values for all required keys
+  const defaultValues = {
+    subjID: 'testID',
+    lang: 'eng-uk',
+    webcam: 'false',
+    touch: '1',
+    fam: '1',
+    test: '2',
+    bg: '04',
+    agents: 'f01-f02-f03-f04-m04-m05-m06-m07-m08',
+  };
+
+  // Check if studyChoices contains all required keys.
+  // If not, set defaults for missing keys
+  if (studyChoices) {
+    Object.keys(defaultValues).forEach((key) => {
+      if (!studyChoices.hasOwnProperty(key)) {
+        studyChoices[key] = defaultValues[key];
+        console.log(
+          `Key "${key}" was missing. Set default value: "${defaultValues[key]}"`,
+        );
+      }
+    });
+  } else {
+    console.log(
+      'Setting the studyChoices object to default values:',
+      JSON.stringify(defaultValues),
+    );
+    // Create a new object with default values
+    studyChoices = { ...defaultValues };
   }
 
   const exp = {
@@ -30,15 +65,15 @@ export function initDatastructure() {
     elemSpecs: {}, // stores measurements & audio durations
 
     meta: {
-      // get some values out of URL parameters, handed over from index.html, entered by users
-      subjID: studyChoices.subjID || 'testID',
-      lang: studyChoices.lang || 'eng-uk',
-      webcam: JSON.parse(studyChoices.webcam) || false,
-      nrTouch: parseInt(studyChoices.touch) || 1,
-      nrFam: parseInt(studyChoices.fam) || 1,
-      nrTest: parseInt(studyChoices.test) || 2,
-      bg: studyChoices.bg || '04',
-      agents: studyChoices.agents || 'f01-f02-f03-f04-m04-m05-m06-m07-m08',
+      // save values from local storage
+      subjID: studyChoices.subjID,
+      lang: studyChoices.lang,
+      webcam: JSON.parse(studyChoices.webcam),
+      nrTouch: parseInt(studyChoices.touch),
+      nrFam: parseInt(studyChoices.fam),
+      nrTest: parseInt(studyChoices.test),
+      bg: studyChoices.bg,
+      agents: studyChoices.agents,
       // save some setting values
       touchscreen: checkForTouchscreen(),
       offsetHeight: document.body.offsetHeight,
