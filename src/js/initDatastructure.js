@@ -50,7 +50,7 @@ export function initDatastructure() {
     webcam: 'false',
     touch: '1',
     fam: '2',
-    test: '15',
+    test: '16',
     bg: '01',
     agents: 'f06-f07-f08-f09-m06-m07-m08-m09',
     saving: 'download',
