@@ -124,7 +124,7 @@ export function uploadCsv(log, ID) {
   formData.append(
     'csvFile',
     new Blob([csvContent], { type: 'text/csv' }),
-    `tango-${ID}-${day}-${time}.csv`,
+    `tangoCC-${ID}-${day}-${time}.csv`,
   );
 
   // Send the data to the server

@@ -68,9 +68,6 @@ export function showGoodbyeSlide(exp) {
     },
   );
 
-  // turn response log into csv format
-  console.log(exp.meta.saving);
-
   // depending on the saving method, upload or download the data
   if (exp.meta.saving === 'upload') {
     uploadCsv(exp.log, exp.meta.subjID);
@@ -91,7 +88,7 @@ export function showGoodbyeSlide(exp) {
         () =>
           mrec.uploadVideo(
             {
-              fname: `tango-${exp.meta.subjID}-${day}-${time}`,
+              fname: `tangoCC-${exp.meta.subjID}-${day}-${time}`,
               uploadContent:
                 '<img src=\'/tango-gaze/images/spinner-upload-de.svg\' style="width: 75vw">',
               uploadColor: '#E1B4B4',
@@ -150,7 +147,7 @@ export function showGoodbyeSlide(exp) {
     }
 
     // if german, then forward to own thank you page
-    if (exp.meta.lang === 'ger') {
+    if (exp.meta.saving === 'upload') {
       window.location.replace(
         `https://devpsy.web.leuphana.de/tango-consent/goodbye.html?subjID=${exp.meta.subjID}`,
       );
