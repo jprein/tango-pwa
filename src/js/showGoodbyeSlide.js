@@ -1,6 +1,7 @@
 import { showSlide } from './showSlide';
 import { handleSpeakerClick } from './handleSpeakerClick';
 import { downloadCsv } from './downloadCsv';
+import { uploadCsv } from './uploadCsv';
 import { closeFullscreen } from './closeFullscreen';
 
 /**
@@ -34,7 +35,11 @@ export function showGoodbyeSlide(exp) {
     .getElementById('foreign-object-center-right')
     .replaceChild(exp.txt.familyImage, exp.txt.instructionsTestImage);
 
-  buttonText.innerHTML = 'exit';
+  if (exp.meta.lang === 'ger') {
+    buttonText.innerHTML = 'weiter';
+  } else {
+    buttonText.innerHTML = 'exit';
+  }
 
   showSlide(
     [textslide, speaker, button, downloadIcon],
@@ -63,19 +68,55 @@ export function showGoodbyeSlide(exp) {
     },
   );
 
-  // save data, download locally
-  downloadCsv(exp.log, exp.meta.subjID);
+  // turn response log into csv format
+  console.log(exp.meta.saving);
 
-  // save the video locally
-  if (!exp.meta.iOSSafari && exp.meta.webcam) {
-    mrec.stopRecorder();
+  // depending on the saving method, upload or download the data
+  if (exp.meta.saving === 'upload') {
+    uploadCsv(exp.log, exp.meta.subjID);
     // give some time to create Video Blob
-    const day = new Date().toISOString().substring(0, 10);
-    const time = new Date().toISOString().substring(11, 19);
-    setTimeout(
-      () => mrec.downloadVideo(`tangoCC-${exp.meta.subjID}-${day}-${time}`),
-      1000,
-    );
+    if (!exp.meta.iOSSafari && exp.meta.webcam) {
+      mrec.stopRecorder();
+
+      // show upload spinner
+      mrec.modalContent(
+        '<img src=\'/tango-gaze/images/spinner-upload-de.svg\' style="width: 75vw">',
+        '#E1B4B4',
+      );
+
+      const day = new Date().toISOString().substring(0, 10);
+      const time = new Date().toISOString().substring(11, 19);
+
+      setTimeout(
+        () =>
+          mrec.uploadVideo(
+            {
+              fname: `tango-${exp.meta.subjID}-${day}-${time}`,
+              uploadContent:
+                '<img src=\'/tango-gaze/images/spinner-upload-de.svg\' style="width: 75vw">',
+              uploadColor: '#E1B4B4',
+              successContent:
+                '<img src=\'/tango-gaze/images/spinner-done-de.svg\' style="width: 75vw">',
+              successColor: '#D3F9D3',
+            },
+            './data/upload_video.php',
+          ),
+        2000,
+      );
+    }
+  } else if (exp.meta.saving === 'download') {
+    downloadCsv(exp.log, exp.meta.subjID);
+    // save the video locally
+    if (!exp.meta.iOSSafari && exp.meta.webcam) {
+      mrec.stopRecorder();
+      // give some time to create Video Blob
+      const day = new Date().toISOString().substring(0, 10);
+      const time = new Date().toISOString().substring(11, 19);
+      setTimeout(
+        () => mrec.downloadVideo(`tangoCC-${exp.meta.subjID}-${day}-${time}`),
+        1000,
+      );
+    }
   }
 
   // on button click, trigger download
@@ -108,7 +149,15 @@ export function showGoodbyeSlide(exp) {
       closeFullscreen();
     }
 
-    window.location.replace(`./goodbye.html`);
+    // if german, then forward to own thank you page
+    if (exp.meta.lang === 'ger') {
+      window.location.replace(
+        `https://devpsy.web.leuphana.de/tango-consent/goodbye.html?subjID=${exp.meta.subjID}`,
+      );
+      // otherwise, show english thank you page
+    } else {
+      window.location.replace(`./goodbye.html`);
+    }
   };
 
   button.addEventListener('click', handleContinueClick, {

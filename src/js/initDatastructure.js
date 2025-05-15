@@ -11,6 +11,25 @@ import * as DetectRTC from 'detectrtc';
  *     initDatastructure()
  */
 export function initDatastructure() {
+  // Check if the URL contains any parameters
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.toString()) {
+    // If there are URL parameters, save them in an object
+    const storedChoices = {};
+    urlParams.forEach((value, key) => {
+      storedChoices[key] = value;
+    });
+
+    // Save the object to localStorage for persistence
+    localStorage.setItem('storedChoices', JSON.stringify(storedChoices));
+
+    // Hide the URL parameter after saving it in local storage
+    window.history.replaceState(null, document.title, window.location.pathname);
+  } else {
+    console.log('No URL parameters found.');
+  }
+
   // get study choices from local storage
   const storedChoices = localStorage.getItem('storedChoices');
   let studyChoices;
@@ -30,10 +49,11 @@ export function initDatastructure() {
     lang: 'eng-uk',
     webcam: 'false',
     touch: '1',
-    fam: '1',
-    test: '2',
-    bg: '04',
-    agents: 'f01-f02-f03-f04-m04-m05-m06-m07-m08',
+    fam: '2',
+    test: '15',
+    bg: '01',
+    agents: 'f06-f07-f08-f09-m06-m07-m08-m09',
+    saving: 'download',
   };
 
   // Check if studyChoices contains all required keys.
@@ -74,6 +94,7 @@ export function initDatastructure() {
       nrTest: parseInt(studyChoices.test),
       bg: studyChoices.bg,
       agents: studyChoices.agents,
+      saving: studyChoices.saving,
       // save some setting values
       touchscreen: checkForTouchscreen(),
       offsetHeight: document.body.offsetHeight,

@@ -1,13 +1,13 @@
 /**
- * Function for downloading user data as a CSV to your device. Some data wrangling is done before downloading so that the data is easier to read.
+ * Function for uploading user data as a CSV to your specified server. Some data wrangling is done before uploading so that the data is easier to read.
  *
- * @param {Object} log - An object that will be converted into a string and downloaded as a CSV
+ * @param {Object} log - An object that will be converted into a string and uploaded as a CSV
  * @param {String} ID - An identifier, e.g. participant ID, which will be part of the file name
  *
  * @example
- *     downloadCsv(csvContent, "testID")
+ *     uploadCsv(csvContent, "testID")
  */
-export function downloadCsv(log, ID) {
+export function uploadCsv(log, ID) {
   log.forEach((item) => {
     // create a new variable for each trial, indicating whether it should be kept in the analysis or not
     // only keep trials that are test trials and have no voiceover
@@ -119,11 +119,24 @@ export function downloadCsv(log, ID) {
   const day = new Date().toISOString().substring(0, 10);
   const time = new Date().toISOString().substring(11, 19);
 
-  // download via blob
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8,' });
-  const objUrl = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.setAttribute('href', objUrl);
-  link.setAttribute('download', `tangoCC-${ID}-${day}-${time}.csv`);
-  link.click();
+  // Prepare form data to send the CSV data as a file
+  const formData = new FormData();
+  formData.append(
+    'csvFile',
+    new Blob([csvContent], { type: 'text/csv' }),
+    `tango-${ID}-${day}-${time}.csv`,
+  );
+
+  // Send the data to the server
+  fetch('./data/data.php', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((result) => {
+      console.log('Success:', result);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 }

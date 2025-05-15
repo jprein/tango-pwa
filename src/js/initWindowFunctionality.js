@@ -1,5 +1,6 @@
 import * as mrec from '@ccp-eva/media-recorder';
 import { downloadCsv } from './downloadCsv';
+import { uploadCsv } from './uploadCsv';
 
 /**
  * Function for checking device orientation.
@@ -41,6 +42,10 @@ export function initWindowFunctionality(exp) {
   // ---------------------------------------------------------------------------------------------------------------------
   window.downloadCsv = () => {
     downloadCsv(exp.log, exp.meta.subjID);
+  };
+
+  window.uploadCsv = () => {
+    uploadCsv(exp.log, exp.meta.subjID);
   };
 
   window.mrec = mrec;
