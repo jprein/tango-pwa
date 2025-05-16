@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && sh src/scripts/deploy.sh",
+    "fetchdata": "sh src/scripts/fetchdata.sh"
   },
   "devDependencies": {
     "@vite-pwa/assets-generator": "^0.2.6",
