@@ -51,8 +51,8 @@ export function experimentalInstructions(exp) {
   txt.familyImage.src = familyImageSrc;
 
   // for german version, show german text instructions
-  switch (exp.meta.lang) {
-    case 'ger':
+  switch (exp.meta.saving) {
+    case 'upload':
       document.title = 'Max-Planck-Kinderstudie';
       textslideButtonText.innerHTML = 'weiter';
       experimentslideButtonText.innerHTML = 'weiter';
