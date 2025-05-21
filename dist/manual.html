@@ -646,11 +646,13 @@
             <p>
               Yes, you can! The TANGO-CC website is a Progressive Web App (PWA),
               which allows you to run the study offline without requiring a live
-              is a type of web application that can be installed on your device
-              and run offline like a native application. It caches the necessary
-              you will need to reload the website while connected to the
-              internet to cache the resources again. This ensures that the PWA
-              can function offline properly.
+              server. It is a type of web application that can be installed on
+              your device and can run offline like a native application. The PWA
+              caches all necessary assets and stores them in the browser's
+              storage. This means that if you delete your browser cache, you
+              will need to reload the website while connected to the internet to
+              cache the resources again. This ensures that the PWA can function
+              offline properly.
             </p>
             <p>
               To use the PWA, simply visit the TANGO-CC website. Once the page
@@ -719,45 +721,11 @@
                 href="https://github.com/jprein/tango-pwa/tree/main/dist"
                 target="_blank"
                 >GitHub</a
-              >). Then, you would need to adapt the "downloadData.js" function
-              and change it to an upload. We did this in the past by using this
-              JavaScript code (note that we upload a .json file instead of a
-              .csv file):
+              >
+              ). Then, you would need to adapt the "uploadData.js" function in
+              the folder src &gt; js, and the data.php script in the folder
+              public &gt; data.
             </p>
-
-            <pre>
-              <code>
-  function uploadData (safe, ID) => {
-    fetch('data/data.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: JSON.stringify(safe), fname: ID }),
-    })
-      .then((response) => response.json())
-      .then((data) => { console.log('Success:', data) })
-      .catch((error) => { console.error('Error:', error) });
-  };
-              </code>
-            </pre>
-
-            <p>
-              The corresponding php script could look like the following. Please
-              make sure to adapt the folder paths and upload links to your own
-              server and check the deploy script in the package.json.
-            </p>
-
-            <pre>
-              <code>
-&lt;?php
-$jsonString = json_decode(file_get_contents('php://input'), true);
-$data = $jsonString["data"];
-$fname = $jsonString["fname"];
-$time = date("Y-m-d-H-i-s");
-file_put_contents('tangoCC-' . $fname . '-' . $time . '.json', $data, true);
-echo '{ "success": true }';
-?&gt;
-              </code>
-            </pre>
           </div>
 
           <div class="faq-question">
